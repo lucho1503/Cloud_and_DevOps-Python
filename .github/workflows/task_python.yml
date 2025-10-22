@@ -1,0 +1,22 @@
+name: test_task_python
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      - name: Run tests
+        run: |
+          python ./src/test_dictionary.py 
+          python ./src/test_new_word.py
+          python ./src/test_spend.py
